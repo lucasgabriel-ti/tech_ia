@@ -1,0 +1,510 @@
+/* =========================
+   CONFIGURAÇÃO GERAL
+========================= */
+
+:root {
+    --azul: #00a8ff;
+    --azul-escuro: #0066ff;
+    --ciano: #00e5ff;
+    --verde-neon: #00ff9d;
+
+    --fundo: #07111f;
+    --cartao: #0d1b2a;
+    --cartao-hover: #132a3f;
+
+    --texto: #f5faff;
+    --texto-secundario: #9fb3c8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--fundo);
+    color: var(--texto);
+    font-family: "Roboto", sans-serif;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.hero {
+    padding: 90px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(135deg,
+            var(--azul-escuro),
+            var(--azul),
+            #00b8d9);
+
+    border-bottom: 1px solid rgba(0, 229, 255, 0.25);
+}
+
+.hero-tag {
+    display: inline-block;
+
+    padding: 7px 15px;
+    margin-bottom: 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    color: white;
+
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.hero h1 {
+    margin-bottom: 20px;
+
+    color: white;
+
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+.hero p {
+    max-width: 750px;
+
+    margin: auto;
+
+    color: rgba(255, 255, 255, 0.88);
+
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+.tema {
+    padding: 80px 0 20px;
+}
+
+.tema-titulo {
+    margin-bottom: 35px;
+}
+
+.tema-titulo>span {
+    color: var(--ciano);
+
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+.tema-titulo h2 {
+    margin: 5px 0 8px;
+
+    color: var(--texto);
+
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.tema-titulo p {
+    margin: 0;
+
+    color: var(--texto-secundario);
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.tema-card {
+    height: 100%;
+
+    overflow: hidden;
+
+    background: var(--cartao);
+
+    border: 1px solid rgba(0, 168, 255, 0.15);
+
+    border-radius: 16px;
+
+    cursor: help;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.tema-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--ciano);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(0, 229, 255, 0.15),
+        0 0 45px rgba(0, 168, 255, 0.08);
+}
+
+
+/* =========================
+   FOCO DO CARD
+========================= */
+
+.tema-card:focus {
+    outline: 2px solid var(--ciano);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================
+   ÁREA DA IMAGEM
+========================= */
+
+.card-image {
+    position: relative;
+
+    width: 100%;
+
+    height: 200px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(135deg,
+            rgba(0, 102, 255, 0.30),
+            rgba(0, 229, 255, 0.15));
+
+    border-bottom: 1px solid rgba(0, 229, 255, 0.15);
+}
+
+
+/* =========================
+   IMAGEM
+========================= */
+
+.card-image img {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+
+/* =========================
+   ESCURECIMENTO DA IMAGEM
+========================= */
+
+.card-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(to bottom,
+            rgba(7, 17, 31, 0.05),
+            rgba(7, 17, 31, 0.55));
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   EFEITO AO PASSAR O MOUSE
+========================= */
+
+.tema-card:hover .card-image img {
+    transform: scale(1.08);
+
+    filter: brightness(1.08);
+}
+
+
+/* =========================
+   EMOJI SOBRE A IMAGEM
+========================= */
+
+.image-emoji {
+    position: absolute;
+
+    right: 18px;
+    bottom: 15px;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 52px;
+
+    background: rgba(7, 17, 31, 0.80);
+
+    border: 1px solid rgba(0, 229, 255, 0.40);
+
+    border-radius: 50%;
+
+    font-size: 1.7rem;
+
+    backdrop-filter: blur(6px);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.tema-card:hover .image-emoji {
+    transform: scale(1.1);
+
+    border-color: var(--ciano);
+}
+
+
+/* =========================
+   CONTEÚDO DOS CARDS
+========================= */
+
+.card-content {
+    padding: 24px;
+}
+
+.card-tag {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: var(--verde-neon);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.card-content h3 {
+    margin-bottom: 14px;
+
+    color: var(--texto);
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    transition: color 0.2s ease;
+}
+
+.tema-card:hover .card-content h3 {
+    color: var(--ciano);
+}
+
+.card-content p {
+    margin-bottom: 20px;
+
+    color: var(--texto-secundario);
+
+    line-height: 1.7;
+
+    text-align: left;
+}
+
+
+/* =========================
+   CATEGORIA DOS CARDS
+========================= */
+
+.card-category {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border: 1px solid rgba(0, 255, 157, 0.15);
+
+    border-radius: 6px;
+
+    background: rgba(0, 255, 157, 0.08);
+
+    color: var(--verde-neon);
+
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+
+/* =========================
+   LINHA COLORIDA DOS CARDS
+========================= */
+
+.tema-card::before {
+    content: "";
+
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        linear-gradient(90deg,
+            var(--azul-escuro),
+            var(--ciano),
+            var(--verde-neon));
+
+    opacity: 0.8;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    margin-top: 80px;
+
+    padding: 30px;
+
+    background: #050c16;
+
+    border-top: 1px solid rgba(0, 229, 255, 0.15);
+
+    text-align: center;
+
+    color: var(--texto-secundario);
+
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 8px;
+
+    color: var(--texto);
+
+    font-weight: 500;
+}
+
+footer span {
+    color: var(--texto-secundario);
+}
+
+
+/* =========================
+   POPOVER DO BOOTSTRAP
+========================= */
+
+.popover {
+    --bs-popover-bg: #0d1b2a;
+
+    --bs-popover-border-color:
+        rgba(0, 229, 255, 0.45);
+
+    --bs-popover-header-bg: #0066ff;
+
+    --bs-popover-header-color: #ffffff;
+
+    --bs-popover-body-color: #f5faff;
+}
+
+.popover-header {
+    font-weight: 700;
+}
+
+.popover-body {
+    color: var(--texto);
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+        padding: 65px 20px;
+    }
+
+    .tema {
+        padding-top: 55px;
+    }
+
+    .tema-titulo h2 {
+        font-size: 2rem;
+    }
+
+    .card-image {
+        height: 210px;
+    }
+}
+
+
+/* =========================
+   CELULARES
+========================= */
+
+@media (max-width: 576px) {
+
+    .hero {
+        padding: 55px 15px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .tema-titulo h2 {
+        font-size: 1.8rem;
+    }
+
+    .card-image {
+        height: 190px;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .image-emoji {
+        width: 46px;
+        height: 46px;
+
+        right: 14px;
+        bottom: 12px;
+
+        font-size: 1.5rem;
+    }
+}
